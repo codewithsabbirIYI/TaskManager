@@ -1,8 +1,8 @@
 <?php
     session_start();
     include('Controllers/taskController.php');
+    $obj = new TaskController;
     if(isset($_POST['submit'])){
-        $obj = new TaskController;
         
         $flag = true;
         if($_POST['task_title'] == ""){
@@ -88,7 +88,11 @@
                             <div class="mb-3 ">
                               <input type="submit" class="btn btn-success" name="submit" value="submit">
                             </div>
-                            
+                            <?php if(isset($_SESSION['insert_success'])) : ?> 
+                                <div class="alert alert-info" role="alert">
+                                    <strong><?= $_SESSION['insert_success']?></strong>
+                                </div>
+                            <?php endif?>
                         </form>
                     </div>
                     
@@ -120,16 +124,35 @@
                                 </tr>
                                 </thead>
                                 <tbody class="table-group-divider">
-                                    <tr class="table-primary" >
-                                        <td scope="row">Item</td>
-                                        <td>Item</td>
-                                        <td>Item</td>
-                                        <td>Item</td>
+
+                                <?php if(isset($_SESSION['update_success'])) : ?> 
+                                    <div class="alert alert-info" role="alert">
+                                        <strong><?= $_SESSION['update_success']?></strong>
+                                    </div>
+                                <?php endif?>
+
+                                <?php
+                                
+                                    $allDataFromDB = $obj-> show();
+                                    foreach ($allDataFromDB as $key => $alltask) : 
+                                         
+                                    ?>
+
+                                     <tr class="table-primary" >
+                                        <td scope="row"><?= $key+1;?></td>
+                                        <td scope="row"><?= $alltask['task_name'];?></td>
+                                        <td scope="row"><?= $alltask['task_details'];?></td>
+                                        <td scope="row"><?= $alltask['task_date'];?></td>
+                                      
                                         <td>
-                                            <a href="" class="btn btn-info" type="submit" >Edit</a>
+                                            <a href="edit.php?id=<?=$alltask['id'];?>" class="btn btn-info" type="submit" >Edit</a>
                                             <a href="" class="btn btn-danger" type="submit" >Delete</a>
                                         </td>
                                     </tr>
+                                   
+                                <?php
+                                    endforeach;
+                                ?>
                                    
                                 </tbody>
                                 <tfoot>
