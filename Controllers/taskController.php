@@ -54,6 +54,16 @@
                 header('location: index.php');
             }
         }
+
+        // delete method or task delete method here 
+        public function delete($taskid){
+            $id = $taskid;
+            $deleteQuery = mysqli_query($this-> db_connect, "DELETE FROM `tasks` WHERE id = '$id' ");
+            if(isset($deleteQuery)){
+                $_SESSION['delete_done'] = "Task Deleted Successfully";
+                header('location: index.php');
+            }
+        }
     }
 
 ?>
