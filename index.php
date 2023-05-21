@@ -139,6 +139,7 @@
                                     ?>
 
                                      <tr class="table-primary" >
+                                        
                                         <td scope="row"><?= $key+1;?></td>
                                         <td scope="row"><?= $alltask['task_name'];?></td>
                                         <td scope="row"><?= $alltask['task_details'];?></td>
@@ -147,6 +148,7 @@
                                         <td>
                                             <a href="edit.php?id=<?=$alltask['id'];?>" class="btn btn-info" type="submit" >Edit</a>
                                             <a href="delete.php?id=<?=$alltask['id'];?>" class="btn btn-danger" type="submit" >Delete</a>
+                                            <button class="btn btn-danger confirmDeleteButton" type="submit"  value="delete.php?id=<?=$alltask['id'];?>">Delete</button>
                                         </td>
                                     </tr>
                                    
@@ -169,12 +171,20 @@
       </div>
     </div>
 
-     
+     <!-- jquery cdn here  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
+    <!-- sweet alert cdn here    -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- bootstrap cdn here  -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <!-- js file link here  -->
     <script src="app.js"></script>
+
+
 </body>
 </html>
 
