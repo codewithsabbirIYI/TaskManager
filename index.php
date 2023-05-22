@@ -147,7 +147,7 @@
                                       
                                         <td>
                                             <a href="edit.php?id=<?=$alltask['id'];?>" class="btn btn-info" type="submit" >Edit</a>
-                                            <a href="delete.php?id=<?=$alltask['id'];?>" class="btn btn-danger" type="submit" >Delete</a>
+                                            <!-- <a href="delete.php?id=<?=$alltask['id'];?>" class="btn btn-danger" type="submit" >Delete</a> -->
                                             <button class="btn btn-danger confirmDeleteButton" type="submit"  value="delete.php?id=<?=$alltask['id'];?>">Delete</button>
                                         </td>
                                     </tr>
